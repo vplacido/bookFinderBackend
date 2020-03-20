@@ -4,7 +4,8 @@ class WatchlistsController < ApplicationController
         render json: watchlists
     end
     def create 
-        watchlist = Watchlist.create(user_id: params[:user_id], book_id: params[:book_id])
+        book = Book.create(title: params[:title], description: params[:description], image: params[:image])
+        watchlist = Watchlist.create(user_id: params[:id], book_id: book.id)
         render json: watchlist
     end
 end
