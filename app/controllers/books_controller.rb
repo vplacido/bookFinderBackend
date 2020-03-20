@@ -7,4 +7,8 @@ class BooksController < ApplicationController
         book = Book.find(params[:id])
         render json: book
     end
+    def create
+        book = Book.create(title: params[:title], description: params[:description], image: params[:image])
+        render json: book
+    end
 end
