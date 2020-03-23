@@ -8,4 +8,9 @@ class WatchlistsController < ApplicationController
         watchlist = Watchlist.create(user_id: params[:id], book_id: book.id)
         render json: watchlist
     end
+
+    def destroy
+        watchlist = Watchlist.find(params[:id])
+        watchlist.delete;
+    end
 end
